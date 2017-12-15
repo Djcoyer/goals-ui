@@ -1,0 +1,17 @@
+.reservationCard {
+    margin-top: 1em !important;
+}
+
+.reservationCard .card-title {
+    margin-bottom: 0 !important;
+}
+
+.reservationCard .card-body p {
+    margin-top: .2em;
+    margin-bottom: .1em;
+    font-size: 80%;
+}
+
+#rentalsTitle {
+    margin-bottom: 0 !important;
+}

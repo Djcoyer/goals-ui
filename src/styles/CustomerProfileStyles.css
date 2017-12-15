@@ -1,0 +1,42 @@
+.res-card-header p {
+    margin-bottom: .4em;
+    width: 6em;
+}
+
+.card {
+    margin-left: .25rem!important;;
+    margin-right: .1rem!important;
+}
+
+.card .col-sm-8 {
+    height: 3em;
+}
+
+.res-card{
+    border: 1px solid whitesmoke;
+    background-color: #fffcff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    width: 25rem;
+    padding: .5em;
+}
+
+.res-card-header {
+    border: 1px solid whitesmoke;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+    width: 25rem;
+    background-color: whitesmoke;
+    margin-top: .2em;
+    padding-left: .6em;
+    padding-top: .4em;
+    padding-bottom: 0em;
+    border-radius: 2%;
+}
+
+.res-row{
+    margin-left: .4em;
+}
+
+.btn-secondary {
+    background-color: whitesmoke;
+    font-weight: 500;
+}

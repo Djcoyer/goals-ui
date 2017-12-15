@@ -1,0 +1,29 @@
+#bookCard .card-header{
+    padding-bottom: 0!important;
+    padding-left: .2em !important;
+    padding-top: .55em !important;
+    cursor: pointer !important;
+}
+
+#bookCard {
+    margin-top: .3em;
+}
+
+#bookCard .card-header p {
+    margin-bottom: .3em !important;
+}
+
+#bookCard .card-body {
+    padding: .2em;
+}
+
+#bookDetailsDiv {
+    height:70vh;
+    position: relative;
+}
+
+#reserveButtonDiv {
+    position:absolute;
+    bottom:0;
+    right: 1em;
+}
