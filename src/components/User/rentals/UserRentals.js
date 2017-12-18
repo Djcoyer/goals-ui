@@ -4,6 +4,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import './../../../styles/UserRentalsStyles.css';
+
 
 const UserRentals = (props) => {
 
@@ -16,7 +18,14 @@ const UserRentals = (props) => {
                     <td>{rental.author}</td>
                     <td>{rental.startDate}</td>
                     <td>{rental.endDate}</td>
-                    <td>{rental.active ? "False" :  "True"}</td>
+                    <td>
+                        {rental.active ?
+                            (<div><p>No</p>
+                                <button className="btn btn-secondary btn-sm float-right" onClick={() => props.returnRental(rental.reservationId)}>Return?</button>
+                            </div>)
+                            :
+                            "Yes"}
+                    </td>
                 </tr>
             );
         });
@@ -57,7 +66,8 @@ const UserRentals = (props) => {
 };
 
 UserRentals.propTypes = {
-    rentals: PropTypes.array.isRequired
+    rentals: PropTypes.array.isRequired,
+    returnRental: PropTypes.func.isRequired
 };
 
 export default UserRentals;

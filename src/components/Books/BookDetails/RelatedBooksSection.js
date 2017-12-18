@@ -4,49 +4,27 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import RelatedBook from "./RelatedBook";
 
 const RelatedBooksSection = (props) => {
-    return(
-        <div className="col-sm-4">
-            <div className="row">
-                <div className="col-sm-9 offset-3">
-                    <p>Related Books:</p>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-sm-9 offset-3">
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <div className="card" id="bookCard">
-                                <div className="card-header">
-                                    <p>Test</p>
-                                </div>
-                                <div className="card-body">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <div className="card" id="bookCard">
-                                <div className="card-header">
-                                    <p>Test</p>
-                                </div>
-                                <div className="card-body">
-
-                                </div>
-                            </div>
-                        </div>
+        return(
+            <div className="col-sm-4">
+                <div className="row">
+                    <div className="col-sm-9 offset-3">
+                        <p>More By this Author:</p>
                     </div>
                 </div>
+                {props.books != null && props.books.length > 0 ?<div className="row">
+                    <div className="col-sm-9 offset-3">
+                        {props.books.map((book)  => <RelatedBook book={book}/>)}
+                    </div>
+                </div> : null}
             </div>
-        </div>
-    );
+        );
 };
 
 RelatedBooksSection.propTypes = {
-
+    books: PropTypes.array.isRequired
 };
 
 export default RelatedBooksSection;

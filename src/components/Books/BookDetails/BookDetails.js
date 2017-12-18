@@ -33,7 +33,7 @@ class BookDetails extends Component {
                     <div className="row">
                         <div className="col-sm-12">
                             <div className="row">
-                                <div className="col-sm-3 offset-4">
+                                <div className="col-sm-12 text-center">
                                     <h3>{book.title}</h3>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ class BookDetails extends Component {
                     </div>
                     <div className="row" id="bookDetailsDiv">
                         <BookDetailsSection isAuthenticated={this.props.isAuthenticated} book={book} rentBook={this.props.rentBook}/>
-                        <RelatedBooksSection/>
+                        <RelatedBooksSection books={[]}/>
                     </div>
                 </div>
             );

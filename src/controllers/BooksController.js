@@ -43,6 +43,10 @@ class BooksController extends Component {
            this.setState({books: books, showModal: false});
         });
 
+        reservationStore.on(Events.ADDED_RESERVATION, () => {
+           window.location.href = "/user/user-profile";
+        });
+
         let params = this.props.match.params;
         if(params.bookId == null) {
             actions.getBooks();

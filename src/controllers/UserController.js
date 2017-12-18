@@ -9,6 +9,7 @@ import ReservationActions from './../actions/ReservationActions';
 import reservationStore from './../stores/ReservationStore';
 import Events from "../constants/Events";
 import UserRentals from "../components/User/rentals/UserRentals";
+import Redirect from "react-router-dom/es/Redirect";
 
 const reservationActions = new ReservationActions();
 class UserController extends Component {
@@ -65,10 +66,11 @@ class UserController extends Component {
             }
             else if (route.indexOf("rentals") > -1) {
                 return (
-                    <UserRentals rentals={this.state.rentals}/>
+                    <UserRentals rentals={this.state.rentals} returnRental={this.returnRental}/>
                 )
             }
         }
+        else return <Redirect to="/home"/>
     }
 }
 
