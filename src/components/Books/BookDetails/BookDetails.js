@@ -29,11 +29,11 @@ class BookDetails extends Component {
         else {
             let book = this.state.book;
             return (
-                <div className="container pt-2">
+                <div className="container mt-3">
                     <div className="row">
                         <div className="col-sm-12">
                             <div className="row">
-                                <div className="col-sm-12 text-center">
+                                <div className="col-sm-12">
                                     <h3>{book.title}</h3>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ class BookDetails extends Component {
                     </div>
                     <div className="row" id="bookDetailsDiv">
                         <BookDetailsSection isAuthenticated={this.props.isAuthenticated} book={book} rentBook={this.props.rentBook}/>
-                        <RelatedBooksSection books={[]}/>
+                        <RelatedBooksSection books={this.props.relatedBooks}/>
                     </div>
                 </div>
             );
@@ -53,7 +53,8 @@ class BookDetails extends Component {
 BookDetails.propTypes = {
     book: PropTypes.object.isRequired,
     rentBook: PropTypes.func,
-    isAuthenticated: PropTypes.bool
+    isAuthenticated: PropTypes.bool,
+    relatedBooks: PropTypes.array.isRequired
 };
 
 export default BookDetails;

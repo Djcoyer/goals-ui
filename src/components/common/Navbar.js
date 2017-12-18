@@ -49,28 +49,7 @@ class Navbar extends Component {
 
         let navContent = () => {
             if(this.state.isAuthenticated){
-                if(this.state.role === Roles.ADMIN){
-                    return(
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <Link to="/home" className="nav-link">Home</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/books" className="nav-link">Books</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/user/user-profile" className="nav-link">Profile</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/manage" className="nav-link">Manage</Link>
-                            </li>
-                            <li className="nav-item float-right">
-                                <button className="btn btn-link nav-link" onClick={() => AuthController.logout()}>Logout</button>
-                            </li>
-                        </ul>
-                    );
-                }
-                else return(
+                return(
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <Link to="/home" className="nav-link">Home</Link>

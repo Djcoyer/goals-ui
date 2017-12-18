@@ -42,7 +42,9 @@ const BookModal = (props) => {
 
 BookModal.propTypes = {
     toggleModal: PropTypes.func.isRequired,
-    addBook: PropTypes.func.isRequired
+    addBook: PropTypes.func.isRequired,
+    showModal: PropTypes.bool.isRequired,
+
 };
 
 export default BookModal;

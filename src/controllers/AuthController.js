@@ -30,7 +30,8 @@ class AuthController extends Component {
             authenticated: false,
             showModal: false,
             firstName: '',
-            lastName: ''
+            lastName: '',
+            isAdmin: false
         };
     }
 
@@ -114,11 +115,20 @@ class AuthController extends Component {
           firstName: this.state.firstName,
             lastName: this.state.lastName,
             emailAddress: this.state.emailAddress,
-            password: this.state.password
+            password: this.state.password,
+            isAdmin: this.state.isAdmin
         };
         userActions.addUser(createUserRequest);
     };
 
+    onCheckChange = (e) => {
+      let id = e.target.id;
+      let value = e.target.checked;
+
+      this.setState({
+          [id]: value
+      });
+    };
 
     render() {
         if(this.props.match.path.indexOf("login") > -1){
@@ -126,7 +136,8 @@ class AuthController extends Component {
                 (this.props.authenticated ? <Redirect to={"/home"}/> : <LoginPage onChange={this.onChange} toggleModal={this.toggleModal} login={this.login}
                                                                                   registerUser={this.registerUser} showModal={this.state.showModal}
                                                                                   emailAddress={this.state.emailAddress} firstName={this.state.firstName}
-                                                                                  lastName={this.state.lastName} password={this.state.password}/>)
+                                                                                  lastName={this.state.lastName} password={this.state.password}
+                                                                                  onCheckChange={this.onCheckChange} isAdmin={this.state.isAdmin}/>)
             )
         }
         else if(this.props.match.path.indexOf("logout") > -1){

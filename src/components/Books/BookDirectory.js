@@ -24,39 +24,70 @@ class BookDirectory extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.books !== this.state.books){
+        if (nextProps.books !== this.state.books) {
             this.setState({books: nextProps.books});
         }
-        if(nextProps.user !== this.state.user){
+        if (nextProps.user !== this.state.user) {
             this.setState({user: nextProps.user});
         }
     }
 
-    getTableRows = () => {
-      let tableRows = [];
-      let books = this.state.books;
-      for(let book of books) {
-          let row =
-              (<tr>
-                  <td><Link to={"/books/" + book.bookId}>{book.title}</Link></td>
-                  <td>{book.author}</td>
-              </tr>);
-          tableRows.push(row);
-      }
+    getTableRows = (isAdmin) => {
+        let tableRows = [];
+        let books = this.state.books;
+        for (let book of books) {
+            let row =
+                (<tr>
+                    <td><Link to={"/books/" + book.bookId}>{book.title}</Link></td>
+                    <td>{book.author}</td>
+                    {isAdmin ? <td><Link to={"/books/" + book.bookId + "/edit"}>Edit</Link></td> : null}
+                </tr>);
+            tableRows.push(row);
+        }
 
-      return tableRows;
+        return tableRows;
     };
 
     render() {
-        let AddBookButton = () => {
-            if(this.state.user != null && this.state.user.roles.indexOf("admin") > -1) {
-                return (
+        let user = this.state.user;
+        let adminContent = () => {
+            return (
+                <div className="col-sm-12">
                     <button className="btn btn-secondary float-right mb-2" onClick={this.props.toggleModal}>
                         Add Book
                     </button>
-                );
-            }
-            else return  null;
+                    <table className="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Author</th>
+                            <th>Edit</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {this.getTableRows(true)}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        };
+
+        let userContent = () => {
+            return (
+                <div className="col-sm-12">
+                    <table className="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Author</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {this.getTableRows(false)}
+                        </tbody>
+                    </table>
+                </div>
+            );
         };
 
         return (
@@ -74,22 +105,9 @@ class BookDirectory extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-sm-12">
-                        <AddBookButton/>
-                        <table className="table table-striped table-bordered">
-                            <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Author</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {this.getTableRows()}
-                            </tbody>
-                        </table>
-                    </div>
+                    {user != null && user.roles.indexOf('admin') > -1 ? adminContent() : userContent()}
                 </div>
-                <BookModal showModal={this.props.showModal} toggleModal={this.props.toggleModal} addBook={this.props.addBook}/>
+                <BookModal toggleModal={this.props.toggleModal} addBook={this.props.addBook} showModal={this.props.showModal}/>
             </div>
         );
     }
@@ -100,7 +118,8 @@ BookDirectory.propTypes = {
     books: PropTypes.array.isRequired,
     user: PropTypes.object,
     toggleModal: PropTypes.func,
-    addBook: PropTypes.func
+    addBook: PropTypes.func,
+
 };
 
 export default BookDirectory;

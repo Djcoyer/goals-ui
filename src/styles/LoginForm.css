@@ -10,3 +10,7 @@
     background-color: whitesmoke;
     color: #333333;
 }
+
+.form-check-label #isAdmin {
+    padding-left: .5em !important;
+}

@@ -59,6 +59,14 @@ const RegisterUserForm = (props) => {
                     </div>
                     <div className="row">
                         <div className="col-sm-12">
+                            <div className="form-check col-sm-4 float-left">
+                                <label className="form-check-label">
+                                    <input type="checkbox" onClick={props.onCheckChange} className="form-check-input" id="isAdmin"
+                                    checked={props.isAdmin}/>
+                                    User is Admin?
+                                </label>
+
+                            </div>
                             <button className="btn login-button btn-secondary btn-sm float-right" type="submit">
                                 Register
                             </button>
@@ -76,7 +84,9 @@ RegisterUserForm.propTypes = {
     onChange: PropTypes.func.isRequired,
     firstName: PropTypes.string.isRequired,
     lastName: PropTypes.string.isRequired,
-    registerUser: PropTypes.func.isRequired
+    registerUser: PropTypes.func.isRequired,
+    onCheckChange: PropTypes.func.isRequired,
+    isAdmin: PropTypes.bool.isRequired
 };
 
 export default RegisterUserForm;

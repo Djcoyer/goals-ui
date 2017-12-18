@@ -39,6 +39,20 @@ class BooksStore extends EventsEmitter {
         }
     };
 
+    saveBook = async(book) => {
+      let result = await api.saveBook(book);
+      if(result !== null){
+          this.book = result;
+          this.emit(Events.SAVED_BOOK);
+      }
+    };
+
+    deleteBook = async(bookId) => {
+      let result = await api.deleteBook(bookId);
+      if(result === 200)
+          this.emit(Events.DELETED_BOOK);
+    };
+
 }
 
 const booksStore = new BooksStore();
@@ -54,6 +68,12 @@ AppDispatcher.register((payload) => {
 
         case ActionTypes.ADD_BOOK:
             booksStore.addBook(payload.book);
+            break;
+        case ActionTypes.DELETE_BOOK:
+            booksStore.deleteBook(payload.bookId);
+            break;
+        case ActionTypes.SAVE_BOOK:
+            booksStore.saveBook(payload.book);
             break;
     }
 });

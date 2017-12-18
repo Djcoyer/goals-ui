@@ -40,7 +40,8 @@ const RegisterModal = (props) => {
     return(
         <Modal isOpen={props.showModal} onRequestClose={props.toggleModal} style={customStyles}>
             <RegisterUserForm onChange={props.onChange} password={props.password} registerUser={props.registerUser}
-                              emailAddress={props.emailAddress} firstName={props.firstName} lastName={props.lastName}/>
+                              emailAddress={props.emailAddress} firstName={props.firstName} lastName={props.lastName}
+            isAdmin={props.isAdmin} onCheckChange={props.onCheckChange}/>
         </Modal>
     );
 };
@@ -53,7 +54,9 @@ RegisterModal.propTypes = {
     onChange: PropTypes.func.isRequired,
     firstName: PropTypes.string.isRequired,
     lastName: PropTypes.string.isRequired,
-    toggleModal: PropTypes.func.isRequired
+    toggleModal: PropTypes.func.isRequired,
+    isAdmin:  PropTypes.bool.isRequired,
+    onCheckChange: PropTypes.func.isRequired
 };
 
 export default RegisterModal;

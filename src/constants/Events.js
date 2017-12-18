@@ -5,6 +5,8 @@ export default  {
     RETRIEVED_BOOKS: "Retrieved Books",
     RETRIEVED_BOOK: "Retrieved Book",
     ADDED_BOOK: "Added Book",
+    SAVED_BOOK: "Saved Book",
+    DELETED_BOOK: "Deleted Book",
     LOGIN_SUCCESS: "Login Success",
     LOGIN_FAILED: "Login Failed",
     LOGOUT_SUCCESS: "Logout Success",

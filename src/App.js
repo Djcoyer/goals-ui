@@ -25,11 +25,11 @@ class App extends Component {
         }
     }
 
-    componentWillMount(){
+    componentWillMount() {
         let exp = localStorage.getItem('expires_at');
         let idToken = localStorage.getItem('id_token');
-        if(idToken != null && exp != null) {
-            if(!authFunctions.isExpired(exp)){
+        if (idToken != null && exp != null) {
+            if (!authFunctions.isExpired(exp)) {
                 let user = authFunctions.getUserFromToken(idToken);
                 let role = (user !== null ? authFunctions.getUserRole(user) : null);
                 this.setState({user: user, authenticated: true, role: role});
@@ -46,7 +46,7 @@ class App extends Component {
     }
 
     onLogin = (user) => {
-      this.setUser(user);
+        this.setUser(user);
     };
 
     setUser = (user) => {
@@ -57,6 +57,7 @@ class App extends Component {
         // }
         this.setState({user: user, role: role, authenticated: true});
     };
+
     render() {
 
         return (
@@ -67,17 +68,37 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={HomeController}/>
                             <Route exact path="/home" component={HomeController}/>
-                            <Route exact path="/login" render={(obj) => {return <AuthController match={obj.match} authenticated={this.state.authenticated} onLogin={this.onLogin}/>}}/>
+                            <Route exact path="/login" render={(obj) => {
+                                return <AuthController match={obj.match} authenticated={this.state.authenticated}
+                                                       onLogin={this.onLogin}/>
+                            }}/>
                             {/*region BOOKS*/}
-                            <Route exact path="/books" render={(obj) => {return <BooksController match={obj.match} user={this.state.user} isAuthenticated={this.state.authenticated}/>}}/>
-                            <Route exact path="/books/:bookId" render ={(obj) => {return <BooksController match={obj.match} isAuthenticated={this.state.authenticated} userId={(this.state.user != null && this.state.user.userId != null ? this.state.user.userId : null)}/>}}/>
+                            <Route exact path="/books" render={(obj) => {
+                                return <BooksController match={obj.match} user={this.state.user}
+                                                        isAuthenticated={this.state.authenticated}/>
+                            }}/>
+                            <Route exact path="/books/:bookId" render={(obj) => {
+                                return <BooksController match={obj.match} isAuthenticated={this.state.authenticated}
+                                                        userId={(this.state.user != null && this.state.user.userId != null ? this.state.user.userId : null)}/>
+                            }}/>
                             {/*endregion*/}
 
                             <ProtectedRouteContainer>
-                            {/*region USER*/}
-                            <Route exact path="/user/user-profile" render={(obj)  => {return <UserController user={this.state.user} match={obj.match}/>}}/>
-                            <Route exact path="/user/rentals" render={(obj) =>  {return <UserController user={this.state.user} match={obj.match}/>}}/>
-                            {/*endregion*/}
+                                {/*region BOOKS*/}
+                                <Route exact path={"/books/:bookId/edit"} render={(obj) => {
+                                    return <BooksController match={obj.match}
+                                                            isAuthenticated={this.state.isAuthenticated}
+                                                            user={this.state.user} obj={obj}/>
+                                }}/>
+                                {/*endregion*/}
+                                {/*region USER*/}
+                                <Route exact path="/user/user-profile" render={(obj) => {
+                                    return <UserController user={this.state.user} match={obj.match}/>
+                                }}/>
+                                <Route exact path="/user/rentals" render={(obj) => {
+                                    return <UserController user={this.state.user} match={obj.match}/>
+                                }}/>
+                                {/*endregion*/}
 
                             </ProtectedRouteContainer>
 

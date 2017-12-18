@@ -34,7 +34,7 @@ class LoginPage extends Component {
                 </div>
                 <RegisterModal onChange={this.props.onChange} password={this.props.password} registerUser={this.props.registerUser}
                                lastName={this.props.lastName} firstName={this.props.firstName} emailAddress={this.props.emailAddress}
-                               showModal={this.props.showModal} toggleModal={this.props.toggleModal}/>
+                               showModal={this.props.showModal} toggleModal={this.props.toggleModal} isAdmin={this.props.isAdmin} onCheckChange={this.props.onCheckChange}/>
             </div>
         );
     }
@@ -49,7 +49,9 @@ LoginPage.propTypes = {
     toggleModal: PropTypes.func.isRequired,
     showModal: PropTypes.bool,
     login: PropTypes.func.isRequired,
-    registerUser: PropTypes.func.isRequired
+    registerUser: PropTypes.func.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
+    onCheckChange: PropTypes.func.isRequired
 };
 
 export default LoginPage;

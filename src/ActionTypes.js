@@ -4,6 +4,8 @@ export  default {
     GET_BOOKS: "Get Books",
     GET_BOOK: "Get Book",
     ADD_BOOK: "Add Book",
+    DELETE_BOOK: "Delete Book",
+    SAVE_BOOK: "Save Book",
     ADD_RESERVATION: "Add Reservation",
     RETURN_RESERVATION: "Return Reservation",
     GET_USER_RESERVATIONS: "Get User Reservations",

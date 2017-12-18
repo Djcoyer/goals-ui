@@ -14,7 +14,7 @@ const RelatedBook = (props) => {
                 <div className="card" id="bookCard">
                     <Link to={"/books/" + props.book.bookId}>
                         <div className="card-header">
-                            <p>Test</p>
+                            <p>{props.book.title}</p>
                         </div>
                     </Link>
                 </div>
