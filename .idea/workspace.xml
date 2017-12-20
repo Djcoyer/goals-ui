@@ -3,19 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="81dce363-7cbb-46aa-9285-2bb0e5b66347" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ActionTypes.js" afterPath="$PROJECT_DIR$/src/ActionTypes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/ReservationActions.js" afterPath="$PROJECT_DIR$/src/actions/ReservationActions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/reservationApi.js" afterPath="$PROJECT_DIR$/src/api/reservationApi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Books/BookDetails/BookDetails.js" afterPath="$PROJECT_DIR$/src/components/Books/BookDetails/BookDetails.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Books/BookDetails/RelatedBook.js" afterPath="$PROJECT_DIR$/src/components/Books/BookDetails/RelatedBook.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/profile/UserInfo.js" afterPath="$PROJECT_DIR$/src/components/User/profile/UserInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/common/Navbar.js" afterPath="$PROJECT_DIR$/src/components/common/Navbar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/constants/Events.js" afterPath="$PROJECT_DIR$/src/constants/Events.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/AuthController.js" afterPath="$PROJECT_DIR$/src/controllers/AuthController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/BooksController.js" afterPath="$PROJECT_DIR$/src/controllers/BooksController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/stores/AuthStore.js" afterPath="$PROJECT_DIR$/src/stores/AuthStore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/stores/ReservationStore.js" afterPath="$PROJECT_DIR$/src/stores/ReservationStore.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -727,16 +714,15 @@
       <workItem from="1513345870212" duration="5076000" />
       <workItem from="1513372938131" duration="15000" />
       <workItem from="1513605932876" duration="11521000" />
-      <workItem from="1513782954015" duration="3805000" />
+      <workItem from="1513782954015" duration="4109000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193867000" />
+    <option name="totallyTimeSpent" value="194171000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="2418" height="1318" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19401097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -746,7 +732,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.320902" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.320902" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
