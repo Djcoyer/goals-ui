@@ -30,7 +30,7 @@ const UserInfo = (props) => {
                 </div>
                 <div className="form-group row">
                     <label className="col-form-label col-sm-3">Permission:</label>
-                    <label className="col-form-label col-sm-6">{user.roles[1]}</label>
+                    <label className="col-form-label col-sm-6">{(user.roles.indexOf('admin') > 0 ? "Admin" : "User")}</label>
                 </div>
             </div>
         </div>

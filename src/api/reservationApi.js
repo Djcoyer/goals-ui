@@ -66,6 +66,23 @@ class rentalApi {
 
     };
 
+    deleteReservationsByBookId = async(bookId) => {
+      let url = apiUrl + "/books/" + bookId;
+      let options = {
+          method: "DELETE",
+          headers: {
+              "Content-Type":"application/json",
+              "Accept": "application/json"
+          }
+      };
+
+      let result = await fetch(url, options)
+          .then((response) => {
+          return response.status;
+          });
+      return result;
+    };
+
 
 
 

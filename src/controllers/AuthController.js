@@ -10,11 +10,10 @@ import Events from "../constants/Events";
 import jwt_decode from "jwt-decode";
 import PropTypes from "prop-types";
 import User from "../models/User";
-import LoginForm from "../components/login/LoginForm";
 import Redirect from "react-router-dom/es/Redirect";
 import LoginPage from "../components/login/LoginPage";
-import UserActions from './../actions/UserActions';
-import userStore from './../stores/UserStore';
+import UserActions from "./../actions/UserActions";
+import userStore from "./../stores/UserStore";
 
 const userActions = new UserActions();
 const actions = new AuthActions();
@@ -42,18 +41,6 @@ class AuthController extends Component {
         userStore.on(Events.ADDED_USER_FAILED,  () => this.addedUserFailed());
     }
     //region AUTH
-
-    static logout = () => {
-        console.log("Hit");
-        actions.logout();
-    };
-
-    static logoutSuccess = () => {
-        localStorage.removeItem('id_token');
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('refresh_token');
-        localStorage.removeItem('expires_at');
-    };
 
     loginSuccess = () => {
         let idToken = authStore.idToken;

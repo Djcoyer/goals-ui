@@ -42,7 +42,7 @@ class BookDetails extends Component {
                     </div>
                     <div className="row" id="bookDetailsDiv">
                         <BookDetailsSection isAuthenticated={this.props.isAuthenticated} book={book} rentBook={this.props.rentBook}/>
-                        <RelatedBooksSection books={this.props.relatedBooks}/>
+                        {this.props.relatedBooks != null && this.props.relatedBooks.length > 0 ? <RelatedBooksSection books={this.props.relatedBooks}/> : null}
                     </div>
                 </div>
             );

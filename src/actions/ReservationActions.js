@@ -35,6 +35,13 @@ class ReservationActions {
       });
     };
 
+    deleteByBookId = (bookId) => {
+      AppDispatcher.dispatch({
+          actionType: ActionTypes.DELETE_RESERVATIONS_BOOK,
+          bookId: bookId
+      })
+    };
+
 }
 
 export default ReservationActions;

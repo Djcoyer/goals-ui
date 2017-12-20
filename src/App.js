@@ -37,13 +37,9 @@ class App extends Component {
         }
     }
 
-    componentDidMount() {
-        authStore.on(Events.LOGOUT_SUCCESS, () => {
-            this.setState({user: null, role: null, authenticated: false});
-            AuthController.logoutSuccess();
-            window.location.href = "/home";
-        });
-    }
+    onLogout = () => {
+        this.setState({user: null, role: null, authenticated: false});
+    };
 
     onLogin = (user) => {
         this.setUser(user);
@@ -63,7 +59,7 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div>
-                    <Navbar isAuthenticated={this.state.authenticated} role={this.state.role}/>
+                    <Navbar isAuthenticated={this.state.authenticated} role={this.state.role} onLogout={this.onLogout}/>
                     <div className="container-fluid">
                         <Switch>
                             <Route exact path="/" component={HomeController}/>

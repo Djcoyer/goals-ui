@@ -12,6 +12,7 @@ import Reservation from "../models/Reservation";
 import ReservationActions from './../actions/ReservationActions';
 import reservationStore from './../stores/ReservationStore';
 import EditBook from "../components/Books/Edit/EditBook";
+import withRouter from "react-router-dom/es/withRouter";
 
 
 const reservationActions = new ReservationActions();
@@ -44,12 +45,12 @@ class BooksController extends Component {
             this.setState({books: books, showModal: false});
         });
 
-        booksStore.on(Events.DELETED_BOOK, this.bookSaved);
+        booksStore.on(Events.SAVED_BOOK, this.bookSaved);
 
-        booksStore.on(Events.SAVED_BOOK, this.bookDeleted);
+        booksStore.on(Events.DELETED_BOOK, this.bookDeleted);
 
         reservationStore.on(Events.ADDED_RESERVATION, () => {
-            window.location.href = "/user/user-profile";
+            this.props.history.push("/user/user-profile")
         });
 
         let params = this.props.match.params;
@@ -152,6 +153,7 @@ class BooksController extends Component {
         books.splice(index, 1);
         books.push(book);
         this.setState({books: books});
+        reservationActions.deleteByBookId(book.bookId);
     };
 
     cancelEdit = () => {
@@ -189,4 +191,4 @@ BooksController.propTypes = {
     user: PropTypes.object
 };
 
-export default BooksController;
+export default withRouter(BooksController);

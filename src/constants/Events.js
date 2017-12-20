@@ -16,5 +16,6 @@ export default  {
     ADDED_RESERVATION: "Added reservation",
     ADDED_USER: "Added user",
     ADDED_USER_FAILED: "Failed to add user",
-    RETRIEVED_USER: "Retrieved user"
+    RETRIEVED_USER: "Retrieved user",
+    RESERVATIONS_DELETED: "Reservations deleted"
 }

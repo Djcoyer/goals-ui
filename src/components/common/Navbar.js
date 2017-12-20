@@ -3,10 +3,14 @@
  */
 
 import React, {Component} from "react";
-import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
-import AuthController from './../../controllers/AuthController';
-import Roles from "../../constants/Roles";
+import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
+import AuthActions from './../../actions/AuthActions';
+import withRouter from "react-router-dom/es/withRouter";
+import authStore from './../../stores/AuthStore';
+import Events from "../../constants/Events";
+
+const actions = new AuthActions();
 class Navbar extends Component {
 
     constructor(props) {
@@ -45,6 +49,18 @@ class Navbar extends Component {
         }
     }
 
+    componentDidMount() {
+        authStore.on(Events.LOGOUT_SUCCESS, () => {
+                console.log("Here");
+                localStorage.removeItem('id_token');
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('refresh_token');
+                localStorage.removeItem('expires_at');
+                this.props.onLogout();
+                this.props.history.push("/home");
+        });
+    }
+
     render() {
 
         let navContent = () => {
@@ -61,7 +77,7 @@ class Navbar extends Component {
                             <Link to="/user/user-profile" className="nav-link">Profile</Link>
                         </li>
                         <li className="nav-item float-right">
-                            <button className="btn btn-link nav-link" onClick={() => AuthController.logout()}>Logout</button>
+                            <button className="btn btn-link nav-link" onClick={() => actions.logout()}>Logout</button>
                         </li>
                     </ul>
                 )
@@ -98,4 +114,4 @@ Navbar.propTypes = {
     role: PropTypes.string
 };
 
-export default Navbar;
+export default withRouter(Navbar);

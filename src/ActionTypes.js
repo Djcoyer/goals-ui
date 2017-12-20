@@ -8,6 +8,7 @@ export  default {
     SAVE_BOOK: "Save Book",
     ADD_RESERVATION: "Add Reservation",
     RETURN_RESERVATION: "Return Reservation",
+    DELETE_RESERVATIONS_BOOK: "Delete Reservations By Book ID",
     GET_USER_RESERVATIONS: "Get User Reservations",
     GET_ACTIVE_USER_RESERVATIONS: "Get active user reservations",
     ADD_USER: "Add user",

@@ -46,7 +46,12 @@ class ReservationStore extends EventsEmitter {
             this.userReservations = result;
             this.emit(Events.RETRIEVED_USER_RESERVATIONS);
         }
+    };
 
+    deleteReservationsByBookId = async(bookId) => {
+      let result = await api.deleteReservationsByBookId(bookId);
+      if(result === 200)
+          this.emit(Events.RESERVATIONS_DELETED);
     };
 
 
@@ -67,6 +72,9 @@ AppDispatcher.register((payload) => {
            break;
        case ActionTypes.GET_ACTIVE_USER_RESERVATIONS:
            reservationStore.getActiveUserReservations(payload.reservationId);
+           break;
+       case ActionTypes.DELETE_RESERVATIONS_BOOK:
+           reservationStore.deleteReservationsByBookId(payload.bookId);
            break;
    }
 });
