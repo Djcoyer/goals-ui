@@ -32,6 +32,7 @@ const customStyles = {
     }
 };
 
+
 const BookModal = (props) => {
     return (
         <Modal isOpen={props.showModal} style={customStyles} onRequestClose={props.toggleModal} ariaHideApp={false}>

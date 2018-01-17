@@ -4,10 +4,8 @@
 
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Table from "../common/Table";
 import Link from "react-router-dom/es/Link";
-import BookModal from "./BookModal";
-
+import AddBookModal from './modal/AddBookModal';
 class BookDirectory extends Component {
     constructor(props) {
         super(props);
@@ -107,7 +105,8 @@ class BookDirectory extends Component {
                 <div className="row">
                     {user != null && user.roles.indexOf('admin') > -1 ? adminContent() : userContent()}
                 </div>
-                <BookModal toggleModal={this.props.toggleModal} addBook={this.props.addBook} showModal={this.props.showModal}/>
+                {this.props.showModal ? <AddBookModal toggleModal={this.props.toggleModal} addBook={this.props.addBook}/> : null}
+                {/*<BookModal toggleModal={this.props.toggleModal} addBook={this.props.addBook} showModal={this.props.showModal}/>*/}
             </div>
         );
     }

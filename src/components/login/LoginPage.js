@@ -1,10 +1,15 @@
 /**
  * Created by dcoyer on 12/14/2017.
  */
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from "react";
+import PropTypes from "prop-types";
 import LoginForm from "./LoginForm";
-import RegisterModal from "./RegisterModal";
+import "./../../styles/LoginModalStyles.css";
+import RegisterModal from "./modal/RegisterModal";
+
+let customStyle = {
+
+};
 
 class LoginPage extends Component {
     constructor(props){
@@ -14,11 +19,18 @@ class LoginPage extends Component {
 
         };
     }
-
     render(){
+        if(this.props.showModal) {
+            customStyle = {
+                backgroundColor: "",
+                zIndex: 1,
+                position: 'fixed',
+                display: ""
+            }
+        }
 
         return(
-            <div className="container">
+            <div className="container" id="loginPageContainer">
                 <div className="row mt-3" id="loginFormDiv">
                     <div className="col-sm-5">
                         <div className="card">
@@ -32,9 +44,12 @@ class LoginPage extends Component {
                         </div>
                     </div>
                 </div>
-                <RegisterModal onChange={this.props.onChange} password={this.props.password} registerUser={this.props.registerUser}
-                               lastName={this.props.lastName} firstName={this.props.firstName} emailAddress={this.props.emailAddress}
-                               showModal={this.props.showModal} toggleModal={this.props.toggleModal} isAdmin={this.props.isAdmin} onCheckChange={this.props.onCheckChange}/>
+                {this.props.showModal ? <RegisterModal firstName={this.props.firstName} emailAddress={this.props.emailAddress} onCheckChange={this.props.onCheckChange}
+                              onChange={this.props.onChange} password={this.props.password} isAdmin={this.props.isAdmin} lastName={this.props.lastName}
+                              registerUser={this.props.registerUser} showModal={this.props.showModal} toggleModal={this.props.toggleModal}/> : null}
+                {/*<RegisterModal onChange={this.props.onChange} password={this.props.password} registerUser={this.props.registerUser}*/}
+                               {/*lastName={this.props.lastName} firstName={this.props.firstName} emailAddress={this.props.emailAddress}*/}
+                               {/*showModal={this.props.showModal} toggleModal={this.props.toggleModal} isAdmin={this.props.isAdmin} onCheckChange={this.props.onCheckChange}/>*/}
             </div>
         );
     }

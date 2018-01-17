@@ -47,7 +47,9 @@ class BooksController extends Component {
 
         booksStore.on(Events.SAVED_BOOK, this.bookSaved);
 
-        booksStore.on(Events.DELETED_BOOK, this.bookDeleted);
+        booksStore.on(Events.DELETED_BOOK, () => {
+            this.bookDeleted();
+        });
 
         reservationStore.on(Events.ADDED_RESERVATION, () => {
             this.props.history.push("/user/user-profile")
@@ -140,6 +142,7 @@ class BooksController extends Component {
     bookSaved = () => {
         let books = this.state.books;
         let id = this.state.book.bookId;
+        console.log(id);
         let index = books.findIndex((book) => book.bookId === id);
         books.splice(index, 1);
         this.setState({books: books});
@@ -147,11 +150,17 @@ class BooksController extends Component {
 
     bookDeleted = () => {
         let book = booksStore.book;
-        let books = this.state.books;
-        let index = books.findIndex((_book) =>  _book.bookId === book.bookId);
-        books.splice(index, 1);
-        books.push(book);
-        this.setState({books: books});
+        // let books = this.state.books;
+        // let _books = [];
+        // for(let _book of books) {
+        //     _books.push(_book);
+        // }
+        // console.log(book, _books);
+        // let index = _books.findIndex((_book) =>  _book.bookId === book.bookId);
+        // console.log(index);
+        // _books.splice(index, 1);
+        // _books.push(book);
+        // this.setState({books: books});
         reservationActions.deleteByBookId(book.bookId);
     };
 

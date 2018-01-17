@@ -22,7 +22,7 @@ const customStyles = {
         top                        : '10em',
         left                       : '25em',
         right                      : '30em',
-        bottom                     : '8em',
+        bottom                     : '7.5em',
         border                     : '1px solid #ccc',
         background                 : '#fff',
         overflow                   : 'auto',
