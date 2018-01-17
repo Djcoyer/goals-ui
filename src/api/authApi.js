@@ -18,7 +18,7 @@ class authApi {
             "body": JSON.stringify(loginInfo)
         }).then((response) => response.json())
             .then((responseJson) => {
-            console.log(responseJson);
+            // console.log(responseJson);
             return responseJson;
             });
         return tokens;

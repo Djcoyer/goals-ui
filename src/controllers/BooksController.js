@@ -30,7 +30,7 @@ class BooksController extends Component {
         };
     }
 
-    componentWillMount() {
+    componentDidMount() {
         booksStore.on(Events.RETRIEVED_BOOKS, () => {
             this.setState({books: booksStore.books});
         });
@@ -41,7 +41,7 @@ class BooksController extends Component {
         booksStore.on(Events.ADDED_BOOK, () => {
             let books = this.state.books;
             books.push(booksStore.book);
-            console.log(books);
+            // console.log(books);
             this.setState({books: books, showModal: false});
         });
 
@@ -83,7 +83,7 @@ class BooksController extends Component {
     rentBook = (bookId) => {
         let userId = this.props.userId;
         let reservation = new Reservation(bookId, userId, null);
-        console.log(userId);
+        // console.log(userId);
         reservationActions.addReservation(reservation);
     };
 
@@ -92,7 +92,7 @@ class BooksController extends Component {
     };
 
     addBook = (book) => {
-        console.log(book);
+        // console.log(book);
         actions.addBook(book);
     };
 
@@ -149,7 +149,6 @@ class BooksController extends Component {
         let book = booksStore.book;
         let books = this.state.books;
         let index = books.findIndex((_book) =>  _book.bookId === book.bookId);
-        console.log(index);
         books.splice(index, 1);
         books.push(book);
         this.setState({books: books});

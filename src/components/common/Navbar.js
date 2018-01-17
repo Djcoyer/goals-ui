@@ -51,7 +51,6 @@ class Navbar extends Component {
 
     componentDidMount() {
         authStore.on(Events.LOGOUT_SUCCESS, () => {
-                console.log("Here");
                 localStorage.removeItem('id_token');
                 localStorage.removeItem('access_token');
                 localStorage.removeItem('refresh_token');

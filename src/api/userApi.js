@@ -20,7 +20,6 @@ class customerApi {
         let response = await fetch(API_URL, options)
             .then((response) =>
             {
-                console.log(response);
                 if(response.status === 201){
                     return response.json();
                 }

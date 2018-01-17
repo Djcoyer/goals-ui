@@ -19,7 +19,7 @@ class AuthStore extends EventsEmitter{
     login = async(username, password) => {
         let authTokens = await api.login(username, password);
         if(authTokens.id_token != null){
-            console.log(authTokens);
+            // console.log(authTokens);
             this.idToken = authTokens.id_token;
             this.accessToken = authTokens.access_token;
             this.emit(Events.LOGIN_SUCCESS);
@@ -30,7 +30,7 @@ class AuthStore extends EventsEmitter{
     logout = async() => {
         let idToken = localStorage.getItem('id_token');
         let logoutResult = await api.logout(idToken);
-        console.log(logoutResult);
+        // console.log(logoutResult);
         this.emit((logoutResult === true ? Events.LOGOUT_SUCCESS : Events.LOGOUT_FAILED));
     };
 

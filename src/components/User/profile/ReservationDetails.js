@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 
 const ReservationDetails = (props) => {
     let rental = props.rental;
-    console.log(rental);
     return(
         <div className="card reservationCard">
             <div className="card-header">

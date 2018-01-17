@@ -35,15 +35,15 @@ class BookDirectory extends Component {
     getTableRows = (isAdmin) => {
         let tableRows = [];
         let books = this.state.books;
-        for (let book of books) {
+        books.map((book, i) => {
             let row =
-                (<tr>
+                (<tr key={i}>
                     <td><Link to={"/books/" + book.bookId}>{book.title}</Link></td>
                     <td>{book.author}</td>
                     {isAdmin ? <td><Link to={"/books/" + book.bookId + "/edit"}>Edit</Link></td> : null}
                 </tr>);
             tableRows.push(row);
-        }
+        });
 
         return tableRows;
     };
